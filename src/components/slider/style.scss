@@ -1,0 +1,126 @@
+.popular {
+  margin: auto;
+  margin-top: 45px;
+  margin-left: 45px;
+  position: relative;
+
+  &__title {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 11px;
+  }
+
+  &__slider {
+    width: 1314px;
+    margin-left: 0px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 26px;
+      left: 0px;
+
+      width: 1314px;
+      height: 286px;
+
+      background: #67657157;
+      backdrop-filter: blur(7px);
+      border-radius: 24px;
+      border: 1px solid #67657157;
+    }
+  }
+}
+
+.slide {
+  width: 184px !important;
+  height: 256px;
+}
+
+// .wrapper {
+//   width: 1269px;
+//   height: 286px;
+
+//   display: flex;
+//   align-items: center;
+
+//   background: #67657157;
+//   backdrop-filter: blur(7px);
+// }
+
+.box {
+  width: 184px;
+  height: 256px;
+  border-radius: 16px;
+
+  background-size: 184px;
+}
+
+.active-box {
+  width: 219px;
+  height: 329px;
+
+  border-radius: 16px;
+  border: 4px solid #8a0428c1;
+  background-size: 229px;
+}
+
+.swiper-wrapper {
+  width: 1266px;
+  display: flex;
+  align-items: center;
+  // height: 337px;
+}
+
+.active-slide {
+  width: 227px !important;
+  height: 337px !important;
+  border-radius: 24px;
+
+  & div {
+    width: 227px;
+    height: 337px;
+    border-radius: 24px;
+  }
+}
+
+.swiper-slide-active {
+  margin-left: 30px;
+}
+
+.margin-40 {
+  margin-left: 100px !important;
+}
+
+.margin-60 {
+  margin-left: 60px !important;
+}
+
+.custom-next {
+  width: 70px;
+  height: 70px;
+
+  background-image: url(../../img/arow.png);
+
+  position: absolute;
+  right: 0px;
+  top: 165px;
+}
+
+.custom-prev {
+  width: 70px;
+  height: 70px;
+
+  background-image: url(../../img/arow.png);
+  transform: rotate(180deg);
+  z-index: 3;
+
+  position: absolute;
+  left: -50px;
+  top: 165px;
+}
+
+.swiper-button-disabled {
+  display: none;
+}

@@ -1,0 +1,82 @@
+.movies {
+  width: 1200px;
+  margin: auto;
+  margin-top: 105px;
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: #ebeef5;
+    font-size: 64px;
+    margin-bottom: 80px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 16px;
+  }
+
+  &__movie {
+    width: 282px;
+    height: 520px;
+    padding: 8px;
+    position: relative;
+    border-radius: 12px;
+
+    background: #20283ecc;
+    backdrop-filter: blur(7px);
+
+    & > img {
+      border-radius: 8px;
+    }
+
+    & > p {
+      margin-top: 24px;
+      margin-bottom: 16px;
+
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #ebeef5;
+    }
+
+    & > button {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #7b6ef6;
+    }
+  }
+
+  &__link {
+    border-radius: 12px;
+  }
+
+  &__rating {
+    position: absolute;
+    padding: 8px;
+    top: 16px;
+    left: 16px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+
+    background-color: #000000a6;
+
+    & > img {
+      width: 16px;
+    }
+
+    & > span {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #ffc849;
+    }
+  }
+}

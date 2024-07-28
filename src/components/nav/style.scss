@@ -1,0 +1,50 @@
+.nav {
+  width: 100%;
+  height: 133px;
+  margin: 0px auto;
+  margin-bottom: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.04) 3%,
+    rgba(11, 18, 32, 1) 100%
+  );
+
+  &__links {
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+
+    font-size: 20px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    color: #fff;
+
+    &_gap {
+      column-gap: 40px;
+    }
+
+    & img {
+      width: 24px;
+    }
+  }
+
+  &__alert {
+    width: 18px !important;
+  }
+
+  & li:hover {
+    cursor: pointer;
+    color: #999999;
+    transition: all 0.3s;
+  }
+}
+
+.logo {
+  width: 162px;
+}
