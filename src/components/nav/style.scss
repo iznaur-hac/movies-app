@@ -15,6 +15,16 @@
     rgba(11, 18, 32, 1) 100%
   );
 
+  &__navlink {
+    color: #fff;
+
+    &:hover {
+      cursor: pointer;
+      color: #999999;
+      transition: all 0.3s;
+    }
+  }
+
   &__links {
     display: flex;
     align-items: center;

@@ -1,4 +1,4 @@
-.movies {
+.favorites {
   width: 1200px;
   margin: auto;
   margin-top: 105px;
@@ -8,6 +8,7 @@
     font-weight: 600;
     color: #ebeef5;
     font-size: 64px;
+    margin: auto;
     margin-bottom: 80px;
   }
 
@@ -18,7 +19,7 @@
     row-gap: 16px;
   }
 
-  &__movie {
+  &__favorite {
     width: 282px;
     height: 520px;
     padding: 8px;

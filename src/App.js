@@ -1,6 +1,8 @@
 import Loader from "./components/loader/Loader";
-import Movie from "./pages/movie/Movie";
+import Movie from "./pages/Movie";
 import Home from "./pages/Home";
+import Favorite from "./pages/Favorite";
+import AllMovies from "./pages/Movies";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -41,6 +43,10 @@ function App() {
             <Route path="/" element={<Home />} />
 
             <Route path="/movie/:id" element={<Movie />} />
+
+            <Route path="/favorite" element={<Favorite />} />
+
+            <Route path="/movies" element={<AllMovies />} />
           </Routes>
         </Router>
       )}

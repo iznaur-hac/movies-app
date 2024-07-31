@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import "./style.scss";
 
 import logo from "../../img/logo1.png";
@@ -8,11 +10,21 @@ function Nav() {
   return (
     <nav className="nav">
       <ul className="nav__links nav__links_gap">
-        <li>Movies</li>
-        <li>Favorite</li>
+        <li>
+          <NavLink className="nav__navlink" to="/movies">
+            Movies
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="nav__navlink" to="/favorite">
+            Favorite
+          </NavLink>
+        </li>
       </ul>
 
-      <img src={logo} alt="logo" className="logo" />
+      <NavLink to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </NavLink>
 
       <ul className="nav__links">
         <li>

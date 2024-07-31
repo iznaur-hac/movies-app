@@ -1,0 +1,58 @@
+.logo-2 {
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.movie-nav {
+  background: none;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  background-color: #121829cc;
+
+  &__container {
+    width: 1200px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 35px;
+    align-items: center;
+
+    & li {
+      color: #a8aebf;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+
+      &:hover {
+        color: #929292;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__link {
+    color: #a8aebf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+
+    &:hover {
+      color: #929292;
+      cursor: pointer;
+    }
+  }
+}

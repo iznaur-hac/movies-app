@@ -1,19 +1,22 @@
 import React from "react";
 
+import MovieNav from "../components/movie-nav/MovieNav";
+
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-import "./style.scss";
+import "../styles/movie.scss";
 
-import logo from "../../img/logo2.png";
-import arrow from "../../img/arrow-right.png";
-import star from "../../img/inactive-star.png";
+import star from "../img/inactive-star.png";
 
 function Movie() {
   const { id } = useParams();
   const [comment, setComment] = useState("");
+
+  const movies = useSelector((item) => item.movies);
+
+  const movie = movies.find((item) => item.id === parseInt(id));
 
   const [comments, setComments] = useState([
     "Хороший фильм. Бла Бла бла",
@@ -39,30 +42,10 @@ function Movie() {
     }
   };
 
-  const movie = useSelector((state) => state.movies[id]);
   return (
     <div className="wrapper">
       <header className="movie-header">
-        <nav className="movie-nav">
-          <div className="movie-nav__container">
-            <img src={logo} alt="logo" className="logo-2" />
-
-            <ul className="movie-nav__list">
-              <li className="movie-nav__items">
-                <NavLink to="/" className="movie-nav__link">
-                  Movies
-                </NavLink>
-              </li>
-              <li className="movie-nav__items">TV Shows</li>
-              <li className="movie-nav__items">
-                <NavLink to="/" className="movie-nav__link">
-                  <span>Suggest me</span>
-                  <img alt="arrow" src={arrow} />
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <MovieNav />
 
         <div
           className="movie-header__container"
