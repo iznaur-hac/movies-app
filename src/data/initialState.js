@@ -3,4 +3,5 @@ export const initialState = {
   currentMovie: {},
   loading: true,
   favorites: [],
+  selectedMovie: null,
 };

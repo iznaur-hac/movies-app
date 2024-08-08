@@ -13,13 +13,13 @@ function Header() {
   const currentMovie = useSelector((state) => state.currentMovie);
 
   const headerStyle = {
-    backgroundImage: `url(${currentMovie.poster_path})`,
+    backgroundImage: `url(${currentMovie?.backdrop?.url})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
 
   //   star rating function
-  const rating = currentMovie.vote_average;
+  const rating = currentMovie?.rating?.imdb;
   const starRating = rating / 2;
 
   const stars = [];
@@ -38,9 +38,9 @@ function Header() {
       <Nav />
 
       <div className="header__movie-description">
-        <h1 className="header__title">{currentMovie.title}</h1>
+        <h1 className="header__title">{currentMovie.name}</h1>
 
-        <p className="header__description">{currentMovie.overview}</p>
+        <p className="header__description">{currentMovie.description}</p>
 
         <div className="header__grade">{stars}</div>
       </div>

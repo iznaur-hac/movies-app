@@ -1,13 +1,16 @@
 import { fetchMoviesSucces } from "./reducer";
+import { fetchMovieByIdSucces } from "./reducer";
 
+// взять все фильмы
 export const moviesFetch = () => {
   return async function (dispatch) {
-    const url = "https://moviedatabase8.p.rapidapi.com/Search/star";
+    const url =
+      "https://api.kinopoisk.dev/v1.4/movie/search?limit=100&query=star%20wars";
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "0788537bb0mshb382a76b7ab1c37p1a4f6djsn113dedd1422b",
-        "x-rapidapi-host": "moviedatabase8.p.rapidapi.com",
+        "X-API-KEY": "WFN8BFA-JW0MB3V-JMXDAAK-S2BAK3R",
+        accept: "application/json",
       },
     };
 
@@ -17,20 +20,26 @@ export const moviesFetch = () => {
         dispatch(fetchMoviesSucces(result));
         console.log(result);
       });
+  };
+};
 
-    // const url = "https://imdb8.p.rapidapi.com/auto-complete?q=avengers";
-    // const options = {
-    //   method: "GET",
-    //   headers: {
-    //     "x-rapidapi-key": "0788537bb0mshb382a76b7ab1c37p1a4f6djsn113dedd1422b",
-    //     "x-rapidapi-host": "imdb8.p.rapidapi.com",
-    //   },
-    // };
+//взять фильм по id
+export const movieFetchById = (id) => {
+  return async function (dispatch) {
+    const url = `https://api.kinopoisk.dev/v1.4/movie/${id}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": "WFN8BFA-JW0MB3V-JMXDAAK-S2BAK3R",
+        accept: "application/json",
+      },
+    };
 
-    // fetch(url, options)
-    //   .then((response) => response.json())
-    //   .then((result) => {
-    //     dispatch(fetchMoviesSucces(result));
-    //   });
+    fetch(url, options)
+      .then((response) => response.json())
+      .then((result) => {
+        dispatch(fetchMovieByIdSucces(result));
+        console.log(result);
+      });
   };
 };

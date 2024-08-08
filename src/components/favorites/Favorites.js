@@ -30,17 +30,17 @@ function Favorites() {
             return (
               <div className="favorites__favorite" key={item.id}>
                 <NavLink to={`/movie/${item.id}`} className="movies__link">
-                  <img src={item.poster_path} alt={item.title} />
+                  <img src={item?.poster?.url} alt={item.name} />
                 </NavLink>
 
-                <p>{item.title}</p>
+                <p>{item.name}</p>
                 <button onClick={() => remove(item)}>
                   - &nbsp; Remove to my list
                 </button>
 
                 <div className="favorites__rating">
                   <img alt="star" src={star} />
-                  <span>{item.vote_average.toFixed(1)}</span>
+                  <span>{item?.rating?.imdb}</span>
                 </div>
               </div>
             );

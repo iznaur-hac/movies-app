@@ -65,7 +65,7 @@ function Slider() {
         onSlideChange={handleSlideChange}>
         {movies.slice(0, 8).map((item, index) => {
           const divStyle = {
-            backgroundImage: `url(${item.poster_path})`,
+            backgroundImage: `url(${item?.poster?.url})`,
           };
 
           let marginLeft = 0;

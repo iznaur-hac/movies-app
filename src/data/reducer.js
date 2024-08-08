@@ -4,13 +4,15 @@ const FETCH_MOVIES_SUCCES = "FETCH_MOVIES_SUCCES";
 const CURRENT_MOVIE_SWITCH = "CURRENT_MOVIE_SWITCH";
 const FAVORITE_MOVIE_ADDER = "FAVORITE_MOVIE_ADDER";
 const FAVORITE_MOVIE_REMOVER = "FAVORITE_MOVIE_REMOVER";
+const FETCH_MOVIE_BY_ID = "FETCH_MOVIE_BY_ID";
+const LOADING_ACTIVE = "LOADING_ACTIVE";
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MOVIES_SUCCES:
       return {
         ...state,
-        movies: [...state.movies, ...action.payload],
+        movies: [...state.movies, ...action.payload.docs],
         loading: false,
       };
 
@@ -39,6 +41,18 @@ export const reducer = (state = initialState, action) => {
         ),
       };
 
+    case FETCH_MOVIE_BY_ID:
+      return {
+        ...state,
+        selectedMovie: { ...action.payload },
+      };
+
+    case LOADING_ACTIVE:
+      return {
+        ...state,
+        loading: true,
+      };
+
     default:
       return state;
   }
@@ -46,6 +60,11 @@ export const reducer = (state = initialState, action) => {
 
 export const fetchMoviesSucces = (payload) => ({
   type: FETCH_MOVIES_SUCCES,
+  payload,
+});
+
+export const fetchMovieByIdSucces = (payload) => ({
+  type: FETCH_MOVIE_BY_ID,
   payload,
 });
 
@@ -62,4 +81,8 @@ export const favoriteMovieAdder = (payload) => ({
 export const favoriteMovieRemover = (payload) => ({
   type: FAVORITE_MOVIE_REMOVER,
   payload,
+});
+
+export const loading_active = () => ({
+  type: LOADING_ACTIVE,
 });

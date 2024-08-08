@@ -1,7 +1,12 @@
 import React from "react";
 
 import MovieNav from "../components/movie-nav/MovieNav";
+import Loader from "../components/loader/Loader";
 
+import { movieFetchById } from "../data/actions";
+
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -11,12 +16,15 @@ import "../styles/movie.scss";
 import star from "../img/inactive-star.png";
 
 function Movie() {
+  const dispatch = useDispatch();
   const { id } = useParams();
+  const movie = useSelector((state) => state.selectedMovie);
+
+  useEffect(() => {
+    dispatch(movieFetchById(id));
+  }, [dispatch, id]);
+
   const [comment, setComment] = useState("");
-
-  const movies = useSelector((item) => item.movies);
-
-  const movie = movies.find((item) => item.id === parseInt(id));
 
   const [comments, setComments] = useState([
     "Хороший фильм. Бла Бла бла",
@@ -42,6 +50,10 @@ function Movie() {
     }
   };
 
+  if (!movie) {
+    return <Loader />;
+  }
+
   return (
     <div className="wrapper">
       <header className="movie-header">
@@ -50,30 +62,30 @@ function Movie() {
         <div
           className="movie-header__container"
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original//${movie.backdrop_path})`,
+            backgroundImage: `url(${movie?.backdrop?.url})`,
           }}>
           <div className="movie-header__title">
-            <p>{movie.title}</p>
+            <p>{movie.name}</p>
           </div>
         </div>
       </header>
 
       <main className="movie-info">
         <img
-          src={movie.poster_path}
+          src={movie?.poster?.url}
           alt="poster"
           className="movie-info__poster"
         />
 
         <ul className="movie-info__list">
           <li className="movie-info__description">
-            <p>{movie.tagline}</p>
-            <span>{movie.overview}</span>
+            <p>{movie.alternativeName}</p>
+            <span>{movie.description}</span>
           </li>
 
           <li className="movie-info__rating">
             <img alt="star" src={star} />
-            <span>{movie.vote_average.toFixed(1)}</span>
+            <span>{movie?.rating?.imdb}</span>
           </li>
 
           <li className="movie-info__list-item">
@@ -83,17 +95,17 @@ function Movie() {
 
           <li className="movie-info__list-item">
             <p>Release Date:</p>
-            <span>{movie.release_date.slice(0, 10)}</span>
+            <span>{movie.year}</span>
           </li>
 
           <li className="movie-info__list-item">
             <p>Run time</p>
-            <span>{`${movie.runtime} min`}</span>
+            <span>{`${movie.movieLength} min`}</span>
           </li>
 
           <li className="movie-info__list-item">
             <p>Genres</p>
-            <span>{movie.genres}</span>
+            <span>{movie.genres.map((item) => item.name).join(", ")}</span>
           </li>
         </ul>
       </main>
