@@ -1,15 +1,17 @@
 .header {
+  height: 890px;
   background-image: url(../../img/poster.png);
   background-repeat: no-repeat;
 
   color: #fff;
 
   &__movie-description {
-    width: 515px;
     margin-left: 88px;
   }
 
   &__title {
+    width: 900px;
+    min-height: 300px;
     font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 90px;
@@ -18,18 +20,30 @@
   }
 
   &__subtitle {
+    width: 600px;
     font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 50px;
   }
 
   &__description {
+    width: 550px;
     margin-bottom: 23px;
 
     font-family: "Outfit", sans-serif;
     font-weight: 500;
     font-size: 18px;
     opacity: 0, 9;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
   }
 
   &__grade {
